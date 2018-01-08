@@ -174,8 +174,99 @@ laurens_favorite2 <- paste("Lasthenia", "californica")
 ## TASK: Concatenate c() your favorite species and mine (laurens_favorite2) 
 ## in a vector called our_favorites.
 
+
+
+################################################################################
+##7) Vectors can be combined into matrices and data frames                  ### 
+################################################################################
+
+
+## Let's start with matrices. These are similar to vectors in that all of the 
+## data must be of the same type (e.g., numbers), but matrices have 2 dimensions 
+## (rows x columns). Matrices (e.g., for correlation and covariance coefficients)
+## are common in statistics. And of course in population biology, where population 
+## projection matrices are used.
+
+## We'll first create a simple vector containing the number 1 through 24. 
+## The colon : operator can be used to create a sequence.
+firstvector <- 1:24
+
+## TASK: view the vector that you just created.
+
+## The dim() function gives us the dimensions of an object.
+## QUESTION: What's the result of the dim(firstvector)?
+
+## Oops! dim() only retrieves the dimensions of a matrix, array or dataframe. 
+## But we can use length() to determine a vector's length.
+## TASK: Use length() to find the legnth of firstvector.
+
+## Take a look at the dim help file
+?dim 
+
+## According to ?dim, the dim() function can be used to both retrieve or SET the dimensions of an object.
+## Let's use it to set the dimensions of firstvector.
+dim(firstvector) <- c(4,6)
+
+## QUESTION: What are the dimensions of firstvector now? Use dim() to find out
+## QUESTION: What is the class of firstvector now? Use the class() function to find out.
+
+## Congratulations, you've changed a 24-element into a 4 row by 6 column matrix!
+## To reflect this change, let's assign our new matrix to an object called "firstmatrix"
+firstmatrix <- firstvector
+
+## We can also create a similar matrix as follows:
+secondmatrix <- matrix(1:24, nrow=4, ncol=6)
+
+## We can check to see if the matrices are the same using the identical() function.
+identical(firstmatrix, secondmatrix)  #Did we succeed?
+
+## Suppose that firstmatrix represents the happiness levels over time for some
+## students of the class. Each row represents a student and each
+## column represents happiness level taken at 6 times during this session.
+## It would be useful to label the rows so that we know who the students are.
+## We'll add a column to the matrix to do this.
+
+students <- c("Hunter", "Erin", "Heather", "Breanna")
+
+## Now we'll use the cbind() function to combine participants and firstmatrix.
+# cbind indicates "column bind" - it to binds columns together. rbind is the corresponding function for rows.
+cbind(students, firstmatrix)
+
+## QUESTION: what attributes of the matrix change when we do this?
+
+## Remember that a matrix can only contain one type of data! 
+## We added a character vector to a numeric matrix!
+## And what did R do in response? Forced all of the numbers into character values. 
+
+## QUESTION: What data structure allows columns with different data types?
+
+## Let's create a dataframe called "happydata" by binding students and first matrix
+happydata <- data.frame(students, firstmatrix)
+
+## TASK: View the contents of happydata.
+## TASK: Find the class and dimension of happydata.
+
+## One last problem, the names of the columns are not descriptive. So we'll fix that.
+## TASK: Create a vector called cnames containing "student", "time1", "time2", "time3", "time4", "time5", "time6"
+## Hint: you could copy those names from above. Don't forget to concatenate using c()!
+
+## TASK: Use the names() function to set the column names attribute for our 
+## data frame. This will be similar to our use of dim() to set the dimension of a vector.
+
+## TASK: View the final data frame.
+
 ##################################
-##7) Getting help as we go along.
+##8) Anatomy of a function    ####
+##################################
+
+
+#################################################
+##9) R libraries are bundles of functions    ####
+#################################################
+
+
+##################################
+##10) Getting help as we go along.
 #################################
 
 ## The arguments to each function are alway documented. 
