@@ -16,6 +16,14 @@
 ## Type this in the console; note the use of the operator '+' 
 2 + 3
 
+## Now run the same code but this time run it from the script
+## Instead of copying 2 + 3 into the console, click on or highlight the line and run cmd-R or cntl-R 
+## Or, in a pinch, click on the line and click the run icon to the right in RStudio above the script
+2 + 3
+
+## Now try running the lines preceded by hashtags
+## What happens? Why might this be useful?
+
 ## TASK: Use the other basic algebraic operators: '-', '*', '/' and '^' to 
 ## substract, multiply, etc. the values 2 and 3.
  
@@ -32,7 +40,7 @@
 ## TASK: What is the result of: multiplying 5 by 11, then dividing that value by 3, 
 ## adding 6 to it, and rising that result to 2? Write this operation as a 
 ## single line of code.
-((5+2)+8)
+
 
 ######################################################
 ## 2) Functions can replace basic algebraic operators.
@@ -49,8 +57,7 @@ Sum(2, 3)
 # The above command should give you an error. This is because R distinguishes 
 # lower case from UPPER case. The function 'sum' is not the same 
 # as 'Sum', and in this case 'Sum' does not exist.
-# You can view the source code of sum by typing just the function name into the console.
-sum
+
 
 ## In addition to the common arithmetic operators +, -, / and ^, other useful operators are
 ## mean() for the mean, sqrt() to take the square root, and abs() for the absolute value
@@ -91,8 +98,8 @@ z
 
 
 ## You can combine vectors to make a new vector. 
-## Create a new vector that contains z, 555,then z again in that order:
-c(z, 555, z)
+## TASK: Create a new vector that contains z, 555,then z again in that order.
+
 
 ## Numeric vectors can be used in arthimetic expressions. 
 ## Type:
@@ -156,7 +163,7 @@ rep(c(0,1,2), each=10)
 ## To make sure we remember that, let's make a vector called "drhalletts_favorite":
 drhalletts_favorite<-c("Lasthenia", "calfornica")
 
-## View that vector. But typing laurens_favorite takes a looong time. 
+## View that vector. But typing drhalletts_favorite takes a looong time. 
 ## To save time, type l then press tab. What happens?
 
 ## TASK: Use the function length to confirm the length of this vector.
@@ -181,7 +188,7 @@ drhalletts_favorite2 <- paste("Lasthenia", "californica")
 ## Let's start with matrices. These are similar to vectors in that all of the 
 ## data must be of the same type (e.g., numbers), but matrices have 2 dimensions 
 ## (rows x columns). Matrices (e.g., for correlation and covariance coefficients)
-## are common in statistics. And of course in population biology, where population 
+## are common in statistics and in population biology, where population 
 ## projection matrices are used.
 
 ## We'll first create a simple vector containing the number 1 through 24. 
@@ -193,7 +200,7 @@ firstvector <- 1:24
 ## The dim() function gives us the dimensions of an object.
 ## QUESTION: What's the result of the dim(firstvector)?
 
-## Oops! dim() only retrieves the dimensions of a matrix, array or dataframe. 
+## Oops! dim() only retrieves the dimensions of a matrix, array or dataframe. Why do you think this is?
 ## But we can use length() to determine a vector's length.
 ## TASK: Use length() to find the legnth of firstvector.
 
@@ -223,7 +230,7 @@ identical(firstmatrix, secondmatrix)  #Did we succeed?
 ## It would be useful to label the rows so that we know who the students are.
 ## We'll add a column to the matrix to do this.
 
-students <- c("Hunter", "Erin", "Heather", "Breanna")
+students <- c("Haley", "Paul", "Henry", "Breanna")
 
 ## Now we'll use the cbind() function to combine participants and firstmatrix.
 # cbind indicates "column bind" - it to binds columns together. rbind is the corresponding function for rows.
@@ -256,11 +263,49 @@ happydata <- data.frame(students, firstmatrix)
 ##8) Anatomy of a function    ####
 ##################################
 
+## Let's take a closer look at functions
+## Functions have 5 different properties
+## 1) the name, 2) the body, 3) the arguments, 4) the default values, 5) the last line of code
+
+## Below is Grolemund's "roll two dice" function
+roll2 <- function(bones = 1:6){
+  dice <- sample(bones, size = 2, replace = TRUE)
+  sum(dice)
+}
+
+## roll2 is the name of the function. What are the other components of the function?
+
+## What happens if you run roll2 without supplying any arguments?
+roll2()
 
 #################################################
 ##9) R libraries are bundles of functions    ####
 #################################################
 
+## R is open-source, which means that anyone can share code by creating an R package (also called a library)
+## R packages are bundles of functions, often based around a theme
+## You only have to install a package once, using the function install.packages()
+## But you have to load an installed package each R session
+
+## For example, try printing the code underlying the function gather
+gather
+
+## What happened? Why? 
+
+## gather is a function in the package tidyr
+## If you are using your own computer, install tidyr now by uncommenting and running the following code:
+# install.packages("tidyr")
+
+## If you are using a lab computer, tidyr is already installed. Everyone try loading it now:
+library("tidyr")
+
+## Now what happens when you print gather?
+
+## gather is a function to help "tidy" data, which we will cover later
+## but as a preview, let's use it to transform the matrix happy data
+gather(happydata, key = "timepoints", value = "happiness", 2:ncol(happydata))
+
+## What did gather do? Why might this be useful? 
 
 ##################################
 ##10) Getting help as we go along.
@@ -277,3 +322,17 @@ happydata <- data.frame(students, firstmatrix)
 ## TASK: Use 'paste' to join together the genus and species names of your 
 ## favorite species using the character '_' to separate the two words.
 
+
+##################################
+##11) Homework setup  ###########
+#################################
+
+## There are a lot of different tools available to learn R
+## One of my favorites is an R package called swirl
+## With the motto "Learn R, in R"
+## Install and load swirl now
+
+
+## swirl includes different modules. To reinforce some of this lesson, and to learn more about how R treats vectors
+## Try out the first module by selecting R Programming and then Basic Building Blocks
+## We will assign swirl lessons periodically to practice R and reinforce concepts in class
