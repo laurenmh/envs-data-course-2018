@@ -5,6 +5,7 @@
 
 ## OBJECTIVE:
 ## To explore the basic building blocks of the R programming language.
+## To become comfortable running and writing R code and working together.
 ## We will practice the concepts of 'function' and 'argument', 
 ## and learn some basic functions in R. 
 

@@ -7,8 +7,11 @@ output:
   word_document: default
 ---
 
+Name: 
+
 About this format: This problem set is saved as an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). To add a new R chunk click the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
 
+TO submit: Please rename this file LASTNAME_ProblemSet1 and upload to the assignments folder on Canvas before class on W 1/17
 
 1) Take the following courses in swirl. Some of these will be parallel to and reinforcing of our in-class exercise, and others will expand on what we have learned. As you proceed with each module please pause and use the play() function at relevant stages in each module to answer the associated questions. Please note that swirl is a little buggy, and if you answer a multiple choice incorrectly it may give you an error and exit swirl. If that happens, type swirl() to resume and enter the same user name you used previously, and you should be able to navigate directly back to where you left off. 
 
