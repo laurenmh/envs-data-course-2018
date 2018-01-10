@@ -88,7 +88,7 @@ z
 
 ## QUESTION: What do you notice about z?
 ## TASK: How long is z? Use the function length() to confirm the length of this vector.
-length(z)
+
 
 ## You can combine vectors to make a new vector. 
 ## Create a new vector that contains z, 555,then z again in that order:
@@ -102,7 +102,7 @@ z *2 +100
 my_sqrt <- sqrt(z-1)
 
 ## QUESTION: Before you look at it, what do you think my_sqrt contains?
-my_sqrt
+
 
 ###################################################
 ##5) Vectors can be created as sequences of numbers.
@@ -125,8 +125,7 @@ seq(0,10, by=.5)
 ## Or maybe we don't care about the increment, we just want 30 numbers between 5 and 10.
 ## Try it out:
 my_seq <- seq(5,10, length=30)
-my_seq
-length(my_seq)
+
 
 ## QUESTION: What is my_seq?
 ## TASK: Confirm that my_seq has length 30.
@@ -154,24 +153,22 @@ rep(c(0,1,2), each=10)
 
 ## What's your favorite species?
 ## Mine is Lasthenia californica (California goldfields!)
-## To make sure we remember that, let's make a vector called "laurens_favorite":
-laurens_favorite<-c("Lasthenia", "calfornica")
+## To make sure we remember that, let's make a vector called "drhalletts_favorite":
+drhalletts_favorite<-c("Lasthenia", "calfornica")
 
 ## View that vector. But typing laurens_favorite takes a looong time. 
 ## To save time, type l then press tab. What happens?
-
-length(laurens_favorite)
 
 ## TASK: Use the function length to confirm the length of this vector.
 
 ## What if I want genus and species to be grouped for a vector of length one?
 ## Type:
-laurens_favorite2 <- paste("Lasthenia", "californica")
+drhalletts_favorite2 <- paste("Lasthenia", "californica")
 
 ## TASK: Use the function length to confirm the length of this vector.
 ## TASK: Use the function 'paste' to join together the genus and species of your 
 ## favorite species. 
-## TASK: Concatenate c() your favorite species and mine (laurens_favorite2) 
+## TASK: Concatenate c() your favorite species and mine (drhalletts_favorite2) 
 ## in a vector called our_favorites.
 
 ##################################
