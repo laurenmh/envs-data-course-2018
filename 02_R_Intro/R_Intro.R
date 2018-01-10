@@ -8,7 +8,7 @@
 ## To become comfortable running and writing R code and working together.
 ## We will practice the concepts of 'function' and 'argument', 
 ## and learn some basic functions in R. 
-
+## Create a resource to refer back to.
 
 ########################################################################
 ## 1) In it's simplest form, R can be used as an interactive calculator. 
