@@ -12,7 +12,7 @@ This course covers the non-statistical aspects of the data life cycle, including
 
 ![The data life-cycle (figure from Grolemund and Wickham)](data-science-explore.png)
  
-This course satisfies the "Analytical Approaches" requirement for Environmental Science majors. MATH 252 or equivalent is a prerequisite. 
+This course satisfies the "Analytical Approaches" requirement for Environmental Science majors. 
 
 **Instructor**: **Dr Lauren Hallett** is a plant community ecologist specializing in ecological restoration.  
 **Email**: hallett@uoregon.edu *Please include ENVS410/510 in email subject lines*  
