@@ -15,7 +15,7 @@
 ########################################################################
 
 ## Type this in the console; note the use of the operator '+' 
-2 + 3
+2 + 5
 
 ## Now run the same code but this time run it from the script
 ## Instead of copying 2 + 3 into the console, click on or highlight the line and run cmd-R or cntl-R 
