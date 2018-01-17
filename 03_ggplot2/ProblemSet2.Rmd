@@ -1,0 +1,92 @@
+---
+title: "Problem set 2"
+output: html_notebook
+---
+
+Name: 
+
+About this format: This problem set is saved as an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). To add a new R chunk click the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+To submit: Please rename this file LASTNAME_ProblemSet2 and upload to the assignments folder on Canvas before class on W 1/24
+
+Load ggplot2 and swirl, and install the module Exploratory Data Analysis by running the following code:
+```{r}
+library(ggplot2)
+library(swirl)
+install_course("Exploratory_Data_Analysis")
+```
+
+I. Take the following courses in swirl and answer these related questions:
+
+1. Exploratory Data Analysis -> 1: Principles of Analytic Graphs
+What are the six principles of analytic graphs?: 
+
+
+2. Exploratory Data Analysis -> 2: Exploratory Graphs
+Make a histogram of mydata that is divided into 100 bins, using either base R or ggplot2: 
+```{r}
+mydata <- sample(rnorm(1000), 800, replace = T)
+
+```
+Are the data normally distributed? Why or why not?: 
+
+
+II. The iris dataset (collected by Edgar Anderson and published in 1935) gives the measurements in centimeters of sepal legnth and width and petal length and width for 50 flowers for different species of iris. The data is included in base R and can be loaded by running the following code:
+```{r}
+data(iris)
+```
+
+
+3. How many species are in the data frame iris? Show the code that you used to find out:
+```{r}
+
+```
+
+
+4. Make a histogram of petal length data using ggplot2: 
+```{r}
+
+```
+Are the petal length data normally distributed? Why do you think they are (or are not)?:
+
+
+5. Modify your histogram using facets to separate any factors that you think affect the normality of the distribution of petal length:
+```{r}
+
+```
+Are the petal length data normally distributed within these factors?: 
+
+
+6. Using ggplot2, make a density plot of the distribution of petal length, using color but not facets to separate any factors that you think affect the normality of distribution of petal length (hint: visit http://ggplot2.tidyverse.org/reference/ for different geom names):
+```{r}
+```
+
+
+7. What are the benefits and drawbacks of the visuals you created in (5) versus (6)? Which would you use if your primary goal was to compare distributions among different factors?:
+
+
+8. Make a scatter plot relating sepal length and width using ggplot2: 
+```{r}
+
+```
+Is there a relationship between sepal length and width? Why do you think there is (or is not)?:
+
+
+9. Modify your scatter plot so that the points are a different color for each species, and add a linear model for each species (hint: use ?geom_smooth to look at possible values for the method argument).
+```{r}
+
+```
+What is the relationship between sepal length and width?:
+
+
+9. Modify your scatter plot so that the points are a different color for each species, and add a linear model for each species (hint: use ?geom_smooth to look at possible values for the method argument).
+```{r}
+
+```
+
+
+10. Make a boxplot of petal width within each species: 
+```{r}
+
+```
+Which species has the widest petals?: 
