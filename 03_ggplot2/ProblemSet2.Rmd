@@ -79,12 +79,6 @@ Is there a relationship between sepal length and width? Why do you think there i
 What is the relationship between sepal length and width?:
 
 
-9. Modify your scatter plot so that the points are a different color for each species, and add a linear model for each species (hint: use ?geom_smooth to look at possible values for the method argument).
-```{r}
-
-```
-
-
 10. Make a boxplot of petal width within each species: 
 ```{r}
 

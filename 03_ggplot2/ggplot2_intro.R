@@ -174,3 +174,6 @@ ggplot(Redband, aes(x=Length, y=Weight)) + geom_point() + facet_grid(Year~ScaleA
 
 ## TASK: Make a histogram of legnth faceted by scale age
 ## QUESTION: Is the distribution of legnth normal within age?
+
+## TASK: Using the full SpokaneFish dataset, make a histogram of length faceted by species
+## Why did we focus on redband trout?
