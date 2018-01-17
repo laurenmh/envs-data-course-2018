@@ -65,12 +65,19 @@ Redband <- subset(SpokaneFish, Species=="RB" & is.na(ScaleAge)==F )   #This is o
 #############################
 ## 1) Aesthetics and mapping
 ############################
-## fish length and weight for Redband trout
-## The first thing we need to do is specify the default dataset and relationship between variables and aesthetics
+
+## There is often a legnth requirement for take from fishing
+## What is the distribution of legnths of redband trout in the lower Spokane River? 
+ggplot(Redband, aes(x=Length)) + geom_histogram()
+
+## TASK: What factors might affect this distribution? 
+## TASK: Make a histogram of the distribution of those factors
+
+
 
 ## QUESTION: In the code below, what is the default dataset? What are the aesthetics?
 ## QUESTION: When you run the code below, why don't we see a graph?
-ggplot(Redband, aes(x=Length, y=Weight))
+ggplot(Redband, aes(x=ScaleAge, y=Length))
 
 
 
@@ -80,13 +87,18 @@ ggplot(Redband, aes(x=Length, y=Weight))
 
 ## We need to specify a layer!
 ## At a minimum, we must specify a geometric object (what shape to add to the plot)
-ggplot(Redband, aes(x=Length, y=Weight)) + geom_point()
+ggplot(Redband, aes(x=ScaleAge, y=Length)) + geom_point()
 
-## We can also add aesthetics to the geometric object.
-## For example, we can color points based on ScaleAge.
+## TASK: Visualize the relationship between redband length and weight
+
+
+
+## We can also add aesthetics to the geometric object
+## For example, we can integrate these relationships by coloring points based on ScaleAge
 ggplot(Redband, aes(x=Length, y=Weight)) + geom_point(aes(color=as.factor(ScaleAge)))
 
-## TASK: Alter the aesthetics of the geometric object so that their shape varies with as.factor(ScaleAge)
+
+## TASK: Modify the aesthetics of the geometric object so that the shape of the points varies with as.factor(ScaleAge)
 ggplot(Redband, aes(x=Length, y=Weight)) + geom_point(aes(color=as.factor(ScaleAge)))
 
 
@@ -102,6 +114,12 @@ ggplot(Redband, aes(x=Length, y=Weight)) + geom_point(aes(color=as.factor(ScaleA
 
 ## For example, if we could relate length and width by calculating and graphing a smoothing function:
 ggplot(Redband, aes(x=Length, y=Weight)) + geom_point() + geom_smooth()
+
+
+## QUESTION: How and why do the following lines differ from the one above, and from each other?
+ggplot(Redband, aes(x=Length, y=Weight)) + geom_point(aes(color=as.factor(ScaleAge))) + geom_smooth()
+ggplot(Redband, aes(x=Length, y=Weight, color=as.factor(ScaleAge))) + geom_point() + geom_smooth()
+
 
 ## Another example of a statistical transformation is geom_boxplot() which:
 ## Calculates a new dataset based on statistically transforming the default dataset and aesthetics (Weight and ScaleAge)
@@ -135,7 +153,10 @@ ggplot(Redband, aes(x=Length, y=Weight)) + geom_point(size=1, color="darkblue", 
   scale_x_log10() + scale_y_log10() +
   xlab("Redband trout length (mm)") + ylab("Redband trought weight (g)")
 
+## TASK: Create a histogram of scale age with dark blue filled bars
 
+
+## TASK: Relate legnth with scale age on a log-log scale
 
 #########################################
 ## 6) Specifying facets
@@ -149,3 +170,7 @@ ggplot(Redband, aes(x=Length, y=Weight)) + geom_point() + facet_wrap(~ScaleAge)
 
 ## We could also make a grid by faceting one variable by another.
 ggplot(Redband, aes(x=Length, y=Weight)) + geom_point() + facet_grid(Year~ScaleAge) 
+
+
+## TASK: Make a histogram of legnth faceted by scale age
+## QUESTION: Is the distribution of legnth normal within age?
