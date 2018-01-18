@@ -22,7 +22,7 @@ To help you look ahead, the objective of the final project will be to complete a
 
 
 ## Final project topic selection
-We will be building toward the final project throughout the class. At this stage we need enough information from you to tailor the data sources we cover and the examples we use in class. A full project proposal, with questions and identified data sources, will be due in early February. For now, please submit a .Rmd file saved as "LASTNAME_ProjectTopic.Rmd" with the following:
+We will be building toward the final project throughout the class. At this stage we need enough information from you to tailor the data sources we cover and the examples we use in class. A full project proposal, with questions and identified data sources, will be due in early February. For now, please submit a .Rmd file saved as "LASTNAME_ProjectTopic.Rmd". In addition to being uploaded as a .pdf, this assignment write-up is available on Canvas as an .Rmd file as an example of the format. Include the following:
 
 ###If you do not have your own data:
 1) General topic of interest (e.g., climate, species conservation, air quality, hydrology, human demography, etc)  
