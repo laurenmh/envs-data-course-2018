@@ -66,7 +66,7 @@ Redband <- subset(SpokaneFish, Species=="RB" & is.na(ScaleAge)==F )   #This is o
 ## 1) Aesthetics and mapping
 ############################
 
-## There is often a legnth requirement for take from fishing
+## There is often a length requirement for take from fishing
 ## What is the distribution of legnths of redband trout in the lower Spokane River? 
 ggplot(Redband, aes(x=Length)) + geom_histogram()
 
