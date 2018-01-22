@@ -23,7 +23,7 @@ library(tidyverse)
 
 ## Let's start by using a data set built into ggplot2
 ## The mpg dataset looks at the gas efficiency of different cars 
-data(mpg, package="ggplot2")
+data(mpg, package = "ggplot2")
 
 ## Let's use a scatterplot to relate city and highway mileage
 ggplot(mpg, aes(cty, hwy)) + geom_point()
