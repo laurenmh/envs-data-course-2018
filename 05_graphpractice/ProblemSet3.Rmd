@@ -44,9 +44,9 @@ Raw data file: http://climate.nasa.gov/system/internal_resources/details/origina
 ```
 
 
-1. Describe the data set: What are the columns and units? Where do the numbers come from? What is the uncertainty in measurement? What is the resolution of the data? 
+3. Describe the data set: What are the columns and units? Where do the numbers come from? What is the uncertainty in measurement? What is the resolution of the data? 
 
-2. Plot the data and describe the trends you observe.
+4. Plot the data and describe the trends you observe.
 ```{r}
 
 ```
@@ -62,9 +62,9 @@ Data source: http://cdiac.ornl.gov/ftp/trends/co2/vostok.icecore.co2
 
 ```
 
-1. Describe the data set: What are the columns and units? Where do the numbers come from? What is the uncertainty in measurement? What is the resolution of the data? 
+5. Describe the data set: What are the columns and units? Where do the numbers come from? What is the uncertainty in measurement? What is the resolution of the data? 
 
-2. Plot the data and describe the trends you observe. Please both assess the relationship between depth and age, and between those variables and CO2. If you would like to reverse the order on the x axis (so that values go from deep to shallow and old to young), add the following to the ggplot line: + scale_x_continuous(trans = "reverse")
+6. Plot the data and describe the trends you observe. Please both assess the relationship between depth and age, and between those variables and CO2. If you would like to reverse the order on the x axis (so that values go from deep to shallow and old to young), add the following to the ggplot line: + scale_x_continuous(trans = "reverse")
 ```{r}
 
 
