@@ -7,7 +7,10 @@
 ## To practice reading about data 
 ## To practice implementing graphics in R
 
+## Load in ggplot2 and other useful packages
 library(tidyverse)
+
+
 ################################################################################
 ### 1: CO2 TRENDS                                                    ###
 ################################################################################
