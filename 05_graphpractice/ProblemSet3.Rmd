@@ -7,13 +7,13 @@ output:
   word_document: default
 ---
 
-Name: 
+###Name: 
 
 About this format: This problem set is saved as an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). To add a new R chunk click the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
 
-TO submit: Please rename this file LASTNAME_ProblemSet1 and upload to the assignments folder on Canvas before class on W 1/24
+**To submit: Please rename this file LASTNAME_ProblemSet3 and upload both the .Rmd and the final .html file to the assignments folder on Canvas before class on W 1/24**
 
-I. Ice sheets
+###I. Ice sheets
 Have a look at the following data, and read it into R 
 Either use fread() in library(data.table) to read it from the web, or read.csv() if you download the data. Consider using the skip argument to skip down to the data.
 
@@ -33,7 +33,7 @@ Raw data file: http://climate.nasa.gov/system/internal_resources/details/origina
 ```
 
 
-II. Sea level
+###II. Sea level
 Have a look at the following data, and read it into R
 Either use fread() in library(data.table) to read it from the web, or read.table() if you download the data and save it as a .txt file. Consider using the skip argument to skip down to the data.
 
@@ -52,7 +52,7 @@ Raw data file: http://climate.nasa.gov/system/internal_resources/details/origina
 ```
 
 
-III. Longer term CO2 trends
+###III. Longer term CO2 trends
 Have a look at the following data, and read it into R
 Either use fread() in library(data.table) to read it from the web, or read.table() if you download the data and save as a .txt file. 
 
