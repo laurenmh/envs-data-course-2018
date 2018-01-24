@@ -15,7 +15,7 @@ TO submit: Please rename this file LASTNAME_ProblemSet1 and upload to the assign
 
 I. Ice sheets
 Have a look at the following data, and read it into R 
-Either use fread() in data.table to read it from the web, or read.csv() if you download the data. Consider using the skip argument to skip down to the data.
+Either use fread() in library(data.table) to read it from the web, or read.csv() if you download the data. Consider using the skip argument to skip down to the data.
 
 Data description: http://climate.nasa.gov/vital-signs/land-ice/
 Raw data file: http://climate.nasa.gov/system/internal_resources/details/original/499_GRN_ANT_mass_changes.csv
@@ -35,7 +35,7 @@ Raw data file: http://climate.nasa.gov/system/internal_resources/details/origina
 
 II. Sea level
 Have a look at the following data, and read it into R
-Either use fread() in data.table to read it from the web, or read.csv() if you download the data. Consider using the skip argument to skip down to the data.
+Either use fread() in library(data.table) to read it from the web, or read.table() if you download the data and save it as a .txt file. Consider using the skip argument to skip down to the data.
 
 Data description: http://climate.nasa.gov/vital-signs/sea-level/
 Raw data file: http://climate.nasa.gov/system/internal_resources/details/original/121_Global_Sea_Level_Data_File.txt
@@ -54,7 +54,7 @@ Raw data file: http://climate.nasa.gov/system/internal_resources/details/origina
 
 III. Longer term CO2 trends
 Have a look at the following data, and read it into R
-Either use fread() in data.table to read it from the web, or read.csv() if you download the data. 
+Either use fread() in library(data.table) to read it from the web, or read.table() if you download the data and save as a .txt file. 
 
 Description of data set: http://cdiac.esd.ornl.gov/trends/co2/vostok.html
 Data source: http://cdiac.ornl.gov/ftp/trends/co2/vostok.icecore.co2
