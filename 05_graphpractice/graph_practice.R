@@ -3,6 +3,9 @@
 ### Visualization: Practice with graphs                                      ### 
 ################################################################################
 
+## Goals: To become practice determining what graphic to use for the data
+## To practice reading about data 
+## To practice implementing graphics in R
 
 ################################################################################
 ### 1: CO2 TRENDS                                                    ###
@@ -15,15 +18,19 @@
 ## Let's import the data directly from the web
 ## This requires the package data.table
 ## It may not be on your computer, in which case install it
+## And if installation takes too long, either download from NASA or from Canvas
 install.packages("data.table")
 library(data.table)
 
 ## Let's skip down to the data, which starts at line 61
 CO2data <- fread('ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_mm_mlo.txt', skip = 60)
-names(CO2data) <- c("year", "month", "decimalDate", "averageCO2", "interpolatedCO2", "trendCO2", "numberDays")
 
 ## If installing data.table takes too long, load from the .csv file from Canvas
-# CO2data <- read.csv("NOAA_ESRL_CO2data.csv")
+CO2data <- read.table("NOAA_ESRL_CO2data.txt", skip = 72)
+
+## give descriptive but short names
+names(CO2data) <- c("year", "month", "decimalDate", "averageCO2", "interpolatedCO2", "trendCO2", "numberDays")
+
 
 #########################
 ## Read about the data ##
@@ -65,7 +72,7 @@ names(CO2data) <- c("year", "month", "decimalDate", "averageCO2", "interpolatedC
 tempdata <- fread('http://climate.nasa.gov/system/internal_resources/details/original/647_Global_Temperature_Data_File.txt')
 
 ## If installing data.table takes too long, load from the .csv file from Canvas
-tempdata <- read.csv("NASA_temperature.csv")
+tempdata <- read.table("NASA_temperature.txt")
 
 #########################
 ## Read about the data ##
@@ -96,7 +103,7 @@ tempdata <- read.csv("NASA_temperature.csv")
 ## Adding mulch was done with the aim of reducing nitrogen availability to favor native plants
 
 ## Read in the data
-tnc_data <- read.csv("05_graphpractice/TNC_BommerCanyon_data.csv")
+tnc_data <- read.csv("TNC_BommerCanyon_data.csv")
 
 ## Have a look at the columns and structure of the data
 
@@ -129,6 +136,7 @@ tnc_data <- read.csv("05_graphpractice/TNC_BommerCanyon_data.csv")
 ## First we'll read in the data and get it ready to use
 ## You can find the data and read about it here: https://github.com/weecology/PortalData
 ## And we'll be using the teaching dataset from here: https://figshare.com/articles/Portal_Project_Teaching_Database/1314459
+## Please download the teaching dataset and set your working directory to the Portal data folder
 ## How were these data collected? 
 ## Have a look at the columns and structure of the data
 
