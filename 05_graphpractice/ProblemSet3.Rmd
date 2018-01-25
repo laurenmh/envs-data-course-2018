@@ -1,0 +1,73 @@
+---
+title: "Problem Set 3"
+output:
+  html_notebook: default
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+###Name: 
+
+About this format: This problem set is saved as an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). To add a new R chunk click the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+**To submit: Please rename this file LASTNAME_ProblemSet3 and upload both the .Rmd and the final .html file to the assignments folder on Canvas before class on W 1/24**
+
+###I. Ice sheets
+Have a look at the following data, and read it into R 
+Either use fread() in library(data.table) to read it from the web, or read.csv() if you download the data. Consider using the skip argument to skip down to the data.
+
+Data description: http://climate.nasa.gov/vital-signs/land-ice/
+Raw data file: http://climate.nasa.gov/system/internal_resources/details/original/499_GRN_ANT_mass_changes.csv
+```{r}
+
+```
+
+
+1. Describe the data set: What are the columns and units? Where do the numbers come from? What is the uncertainty in measurement? What is the resolution of the data? 
+
+2. Plot the data and describe the trends you observe.
+
+```{r}
+
+```
+
+
+###II. Sea level
+Have a look at the following data, and read it into R
+Either use fread() in library(data.table) to read it from the web, or read.table() if you download the data and save it as a .txt file. Consider using the skip argument to skip down to the data.
+
+Data description: http://climate.nasa.gov/vital-signs/sea-level/
+Raw data file: http://climate.nasa.gov/system/internal_resources/details/original/121_Global_Sea_Level_Data_File.txt
+```{r}
+
+```
+
+
+3. Describe the data set: What are the columns and units? Where do the numbers come from? What is the uncertainty in measurement? What is the resolution of the data? 
+
+4. Plot the data and describe the trends you observe.
+```{r}
+
+```
+
+
+###III. Longer term CO2 trends
+Have a look at the following data, and read it into R
+Either use fread() in library(data.table) to read it from the web, or read.table() if you download the data and save as a .txt file. 
+
+Description of data set: http://cdiac.esd.ornl.gov/trends/co2/vostok.html
+Data source: http://cdiac.ornl.gov/ftp/trends/co2/vostok.icecore.co2
+```{r}
+
+```
+
+5. Describe the data set: What are the columns and units? Where do the numbers come from? What is the uncertainty in measurement? What is the resolution of the data? 
+
+6. Plot the data and describe the trends you observe. Please both assess the relationship between depth and age, and between those variables and CO2. If you would like to reverse the order on the x axis (so that values go from deep to shallow and old to young), add the following to the ggplot line: + scale_x_continuous(trans = "reverse")
+```{r}
+
+
+
+```
+
