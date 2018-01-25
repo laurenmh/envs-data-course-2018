@@ -1,0 +1,34 @@
+---
+title: "Environmental Datasets"
+output: html_document
+---
+
+##Environmental data sources
+
+## Federal
+- NOAA
+- NCDC climate stations
+- USGS gauge data
+- NASA earth observatory
+- US Census
+- NEON
+- CZOs
+
+## State
+- Air and water quality from state agencies
+
+##NGO
+- NatureServe
+
+##International
+- IUCN
+- World Bank
+
+## Academic
+- DataONE 
+- Long-term ecological research (LTER) sites
+
+## Citizen science
+- ebird
+- Breeding bird survey
+
