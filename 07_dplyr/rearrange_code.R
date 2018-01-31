@@ -19,16 +19,13 @@ library(tidyverse)
 ## These type of data are ripe for for scripted analysis because their formats remain constant 
 ## but graphs frequently need to be updated to reflect new data.
 
-rawdat <- read.csv("CalispellCreekandTributaryTemperatures.csv", stringsAsFactors=FALSE) 
+rawdat <- read.csv("CalispellCreekandTributaryTemperatures.csv", stringsAsFactors = FALSE) 
 
 ## QUESTION: What does stringsAsFactors mean? Why would we want to make it false?
 
 ## Let's assign more useable column names
 names(rawdat)<-c("date", "time", "calispell_temp", "smalle_temp", "winchester_temp")
 
-## If I only wanted to change specific columns, I could specify them by position
-## For example
-names(rawdat)[1] <- "date"
 
 
 #################################
@@ -37,7 +34,7 @@ names(rawdat)[1] <- "date"
 
 
 ## The first step of working with data in dplyr is to load the data in what the package authors call
-## a 'data frame tbl' or 'tb_df'.
+## a 'tibble'
 ## Use this code to create a new tibble called wtemp.
 ## Tibbles are similar to data frames but with some useful features: https://cran.r-project.org/web/packages/tibble/vignettes/tibble.html
 wtemp <- as_tibble(rawdat)
@@ -48,10 +45,10 @@ wtemp
 
 ## QUESTION: What class is wtemp? How many rows does wtemp have? How many columns?
 
-## To reinforce how nice this is, print mydat instead:
+## To reinforce how nice this is, print rawdat instead:
 rawdat
 
-## Ophf! To never see that again, let's remove rawdat and mydat from the workspace
+## Ophf! To never see that again, let's remove rawdat from the workspace
 rm(rawdat)
 
 
@@ -141,7 +138,7 @@ arrange(wtemp, calispell_temp)
 arrange(wtemp, -calispell_temp)
 arrange(wtemp, desc(calispell_temp))
 
-## And you can arrange by mutiple variables. 
+## And you can arrange by multiple variables. 
 ## TASK: arrange the tibble by date then desc(smalle_temp)
 
 ## TASK: How could you use arrange() to sort all missing values to the start? (Hint: use is.na()).
@@ -160,7 +157,7 @@ mutate(wtemp, calispell_temp_F = calispell_temp*9/5 + 32)
 
 ## To make our data more usable, we also might want to summarize data across time, or by month and year.
 ## The lubridate package helps a lot with this! Here is just a taste, but if you need to work with dates for your project check out the package.
-## There is also a great swirl tutorial on how to use it, and feel free to ask us to help with your date strings as well.
+## There is also a great swirl tutorial on how to use it.
 ## Let's load lubridate:
 library(lubridate)
 

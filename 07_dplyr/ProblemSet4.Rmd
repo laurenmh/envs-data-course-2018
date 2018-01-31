@@ -7,7 +7,7 @@ Data from US Environmental Protection Agency https://www.epa.gov/outdoor-air-qua
 1. Click daily download on the left-hand side  
 2. Choose 1: Ozone, 2: 2017, 3: Phoenix-Mesa-Scottsdale, AZ, 4: All sites.
 3. Download and examine the data.  
-4. Import the data into R and store it as a tibble.  Please use stringsAsFactors = F when you do so. Rename columns in R for ease of use as needed.
+4. Import the data into R and store it as a tibble. Please use stringsAsFactors = F when you do so. Rename columns in R for ease of use as needed.
 
 **1) Understand the data:**
 i) What do the columns mean?
