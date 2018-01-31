@@ -1,0 +1,92 @@
+---
+title: "ProblemSet4"
+output: html_document
+---
+### Exercise 1: Air Quality and Ozone in Phoenix, AZ  
+Data from US Environmental Protection Agency https://www.epa.gov/outdoor-air-quality-data  
+1. Click daily download on the left-hand side  
+2. Choose 1: Ozone, 2: 2017, 3: Phoenix-Mesa-Scottsdale, AZ, 4: All sites.
+3. Download and examine the data.  
+4. Import the data into R and store it as a tibble.  Please use stringsAsFactors = F when you do so. Rename columns in R for ease of use as needed.
+
+**1) Understand the data:**
+i) What do the columns mean?
+ii) Where would you go for more information?  
+iii) Are there missing values in this dataset? 
+
+**2) Manipulate the data:**
+i) Are there any NA included in the ozone record? Please show the code you use to determine this.
+```{r}
+
+```
+
+ii) Remove any records that are less than 80% complete and save as a new tibble.
+```{r}
+
+```
+
+iii) Create a new column in your new tibble that is daily ozone standardized around the mean within each site.
+```{r}
+
+```
+
+iv) Create a new tibble that summarizes the data with columns for the average, maximum, mimimum, and median values of ozone within each site.
+```{r}
+
+```
+
+v) Graph ozone over time by site (hint: you may want to manipulate the date column). Describe the trends you observe.
+```{r}
+
+```
+
+
+
+### Exercise 2: Coral reef SCUBA survey data  
+Data from LTER Network Data Portal  https://portal.lternet.edu/nis/home.jsp  
+1. In the search type “Moorea coral backreef”  
+2. Find MCR LTER: Coral Reef: Long-term Community Dynamics: Backreef (Lagoon) Corals Annual Survey,  ongoing since 2005.  
+3. Download the data package (Download Zip Archive) and extract the folder
+4. Load the long and wide datasets into R and save them as tibbles. Please use stringsAsFactors = F when you load the data.
+
+**1) Understand the data:**
+i) Where is the meta-data?  
+ii) How were these data collected?
+iii) How do the long and wide forms differ from each other?
+iv) What does cb stand for? 
+
+
+**2) Manipulate the data:**
+
+*Using the long dataframe:*
+i) Create a new tibble that removes any substrates from the benthic_category.
+```{r}
+
+```
+
+ii) Use your new tibble to create another summarized tibble of total cover within each unique site, quad, patch and year. 
+```{r}
+
+```
+
+
+iii) Visualize total cover over time however you think most appropriate. What trends do you see? 
+Hint: Are there any values for year that you should remove first? unique() may help. Consider filtering out this entry, and resaving the column as numeric. 
+```{r}
+
+```
+
+*Using the long dataframe:*
+iv) What type of data are columns coral:millepora? What would you prefer them to be? 
+
+Use unique(), filter() and as.numeric() to identify and remove any unwanted values from the coral and macroalgae columns and reformat to a more useable type.
+```{r}
+
+```
+
+
+v) What is the relationship between coral and macroalgae? Does this change by site? Please show the visualizations you use to answer these questions.
+
+```{r}
+
+```

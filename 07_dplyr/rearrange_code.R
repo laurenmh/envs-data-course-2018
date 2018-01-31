@@ -116,6 +116,10 @@ is.na(c(3,5, NA, 6))
 ## This tells us what is NOT NA:
 !is.na(c(3,5, NA, 6))
 
+
+## NOTE: To see all possible unique values in a column, use the unique function:
+unique(wtemp$calispell_temp)
+
 ## TASK: Time to put this all together. Please filter all of the rows of wtemp 
 ## for which the value of calispell_temp is not NA.
 ## How many rows match this condition?
