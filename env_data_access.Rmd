@@ -1,0 +1,100 @@
+---
+title: "Environmental Data Exercise"
+output:
+  html_notebook: default
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Data about the environment is stored in a variety of formats and accessible through a variety of portals. 
+
+Goal: Go to online databases of environmental data, download example datasets and examine them, search for metadata and discuss specific caveats, data quality issues and data scope.
+
+Learning Objectives: During this exercise you will gain experience querying databases for a variety of environmental data. You will have to think critically about datasets in the initial steps of accessing new information. Use what you know about how tabular data is structured to make sense of these new data.
+
+###Exercise 1: Finding and acquiring streamflow data for the South Platte River, CO. 
+Link to US Geological Survey waterdata portal https://waterdata.usgs.gov/nwis  
+1. Select Surface water: note the options, and the number of sites  
+2. Select Colorado (upper right drop-down)  
+3. Select Site type in the Site Attribute column, and Submit  
+4. Select Stream in Site Type, Streamflow in Water Level/Flow Parameters, and Scroll list of sites in Choose Output Format, then Submit  
+5. Scroll down to USGS 06711565, click to select and press CTRL to select USGS 06711590 as well. Select Brief description in Choose Output Format and Submit  
+6. Check the box next to USGS 06711565 and select Table of sites in Choose Output Format and Submit  
+7. Click on “06711565”, uncheck all boxes except for Temperature, and click Go    
+
+_Questions:_  
+What format is this data?  
+Where is the meta-data? And what form does it take?  
+How many variables do you have? And what are they?  
+What is the resolution of your data?  
+Is there any missing data? How do you know? What does this mean?  
+
+###Exercise 2: Escherichia coli water quality data 
+Data from Oregon Department of Environmental Quality (ODEQ) http://www.oregon.gov/deq/wq/Pages/WQdata.aspx  
+1. Click on Public Portal, and use ORPUBLIC as the username and password  
+2. Go to Exports, and select Default Search Criteria from the Standard menu  
+3. Under Organizations and Locations, check ALL Organizatons and Monitoring Location Types, and Choose 1 ~ Coast Range for Eco-region Level 3.  
+4. Under Other Search Criteria, change the Date range to 1-1-2008 to 1-1-2018, and Media to Water. Examine Media Subdivisions.  
+5. Under Parameters, choose to Select individual parameters, and select the Water Quality Index in the Parameter Group drop-down. Click Escherichia coli, and then Export Data (top left). Click the file name to download.  
+
+_Questions:_  
+What is the file format of this data, why does this matter, how would you change it?  
+What are the dimensions of this dataset?  
+What do Activity Type, Media and Media Subdivision columns tell you about different kinds of data in this file?  
+What do the different types of data mean for analysis? Are they comparable? Can you think of ways to refine your data?  
+
+###Exercise 3: Air Quality and Ozone in Phoenix, AZ  
+Data from US Environmental Protection Agency https://www.epa.gov/outdoor-air-quality-data  
+1. Click daily download on the left-hand side  
+2. Choose 1: Ozone, 2: 2017, 3: Phoenix-Mesa-Scottsdale, AZ, 4: 040130019 (first entry).  
+3. Download and examine the data.  
+_Questions:_  
+Can you tell what the columns in the data mean? Where would you go for more information?  
+Are there missing values in this dataset?  
+
+###Exercise 4: Coral reef SCUBA survey data  
+Data from LTER Network Data Portal  https://portal.lternet.edu/nis/home.jsp  
+1. In the search type “Moorea coral backreef”  
+2. Find MCR LTER: Coral Reef: Long-term Community Dynamics: Backreef (Lagoon) Corals Annual Survey,  ongoing since 2005.  
+3. Download the ‘Percent cover as wide table’  
+_Questions:_  
+Where is the meta-data?  
+What is the structure of this data?  
+What other information is available?  
+
+###Data Visualization Practice:  
+Using one of the data sets above, create one (or more) visualizations based on your understanding of the data structure and the example ggplot scripts (available on Canvas) we have been using over the past two weeks!  
+To load these data sets we will have to read them into R. Go to your Finder window and the Downloads folder to locate the files. Copy and Paste them into your working directory, which can be identified with this function
+
+```{r}
+getwd()
+#Then load the data into R using the following code. 
+southPlatteTemp <- read.table("dv.txt", sep = "", fill=T, header = T, na.strings = c(""," "))
+ozoneAZ <- read.csv("ad_viz_plotval_data.csv")
+corals <- read.csv("mcr_lter_coral_cover_backreef_wide_20160218.csv")
+e.coli <- read.csv("Standard Export 2929.csv", skip = 1)
+```
+
+1. Think histograms and bivariate plots (point, bar or line).  
+2. Is a facet wrap appropriate for the data set you have chosen?  
+
+###Additional Data Resources
+Biodiversity data:  
+http://www.keybiodiversityareas.org/site/requestgis  
+https://ebird.org/ebird/explore  
+http://explorer.natureserve.org/index.htm  
+http://www.natureserve.org/conservation-tools/custom-data-services  
+Climatic/Earth System data:  
+https://www.wcc.nrcs.usda.gov/snow/  
+https://www.ncdc.noaa.gov/cdo-web/  
+https://data.nasa.gov/  
+http://criticalzone.org/national/data/  
+Environmental Quality Data:  
+https://edg.epa.gov/metadata/catalog/main/home.page  
+http://www.oregon.gov/deq/Data-and-Reports/Pages/default.aspx  
+---See also the State DEQ websites for other states.  
