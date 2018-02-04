@@ -3,32 +3,47 @@ title: "Environmental Datasets"
 output: html_document
 ---
 
-##Environmental data sources
+###Environmental data sources
 
-## Federal
-- NOAA
-- NCDC climate stations
-- USGS gauge data
-- NASA earth observatory
-- US Census
-- NEON
-- CZOs
+##Federal
+- National Oceanic and Atmospheric Administration https://www.ncdc.noaa.gov/data-access 
+- US Geological Survey https://data.usgs.gov/datacatalog/ 
+- NASA earth observatory https://earthdata.nasa.gov/ 
+- National Ecological Observatory Network http://data.neonscience.org/home 
+- Critical Zone Network http://criticalzone.org/national/data/
 
-## State
-- Air and water quality from state agencies
+##State 
+- Air and water quality from state agencies, e.g. Departments of Environmental Quality (DEQ) 
+#For example: Washingtion Department of Ecology 
+https://ecology.wa.gov/Research-Data/Monitoring-assessment/Groundwater-quality-assessment 
 
-##NGO
-- NatureServe
+##Non-Governmental Organizations
+- NatureServe http://www.natureserve.org/conservation-tools/custom-data-services
+- Breeding bird survey https://www.pwrc.usgs.gov/bbs/RawData/  
 
-##International
-- IUCN
-- World Bank
+##International Programs
+- International Union for the Conservation of Nature http://www.iucnredlist.org/technical-documents 
 
-## Academic
-- DataONE 
-- Long-term ecological research (LTER) sites
+## Academic Data Repositories
+- DataONE  https://www.dataone.org/
+- Long-term ecological research (LTER) sites https://portal.lternet.edu/nis/home.jsp
+See also https://www.nature.com/sdata/policies/repositories
 
 ## Citizen science
-- ebird
-- Breeding bird survey
+- ebird https://ebird.org/data/download
 
+
+###Social-Environmental Data
+## Regional Collaborative Data Projects
+#For example: Data for Local Communities
+https://library.uoregon.edu/dc/dlc/
+
+##Energy
+#National Renewable Energy Laboratory
+https://www.nrel.gov/rredc/biomass_resource.html
+
+#DOE Data
+https://openei.org/wiki/Data
+
+##World Bank Data
+https://data.worldbank.org/
