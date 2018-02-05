@@ -16,7 +16,7 @@ library(lubridate)
 
 wtemp <- read.csv("CalispellCreekandTributaryTemperatures.csv", stringsAsFactors = FALSE) %>%
   as_tibble()
-names(wtemp) <-c ("date", "time", "calispell_temp", "smalle_temp", "winchester_temp")
+names(wtemp) <- c ("date", "time", "calispell_temp", "smalle_temp", "winchester_temp")
 wtemp <- mutate(wtemp, date2 = mdy(date), month = month(date2), year = year(date2))
 
 
@@ -87,7 +87,9 @@ Calispell_monthtemp <- wtemp %>%
   select(date, time, calispell_temp) %>%
   filter(!is.na(calispell_temp)) %>%
   arrange(calispell_temp) %>%  
-  mutate(date2 = mdy(date), month = month(date2), year = year(date2)) %>%
+  mutate(date2 = mdy(date), 
+         month = month(date2), 
+         year = year(date2)) %>%
   group_by(month, year) %>%
   summarize(avg_temp_calispell = mean(calispell_temp),  
             se_temp_calispell = calcSE(calispell_temp)) %>%
@@ -150,62 +152,26 @@ cdrCN <- read.csv("e001_Plant aboveground biomass carbon and nitrogen.csv", stri
 
 
 ################################################################################
-##### 3) TOTAL BIOMASS WITH N-DEPOSTION AND RICHNESS                         ###
+##### 3) TOTAL BIOMASS WITH OVER TIME AND WITH RICHNESS AND NITROGEN        ###
 ################################################################################
 
+## Check out  http://www.cedarcreek.umn.edu/research/experiments/e001
+## What did Haddad et al. 2002 find? See text and Figure 6
+## Q: What pattern did they observe between species richness and nitrogen treatment?
+## Q: What years and treatments did they include in Figure 1?
+
+## WORKFLOW A: Mimic Figure 6a 
+## Metadata here: http://www.cedarcreek.umn.edu/research/data/dataset?ple001
+## With a partner, write out the workflow you will use in English and put up a green sticky.
+# What QAQC will you do beforehand? 
+# How will you manipulate the data once you are happy with it?
+## After we have discussed as a class, write out and run the workflow in tidyverse R
 
 
-## remove burned plots (those are in field D, and the others from 2005-2009)
-exts <- cdrplant %>%
-  select(NTrt, NAdd, NitrAdd, NAtm.NAdd) %>%
-  unique()
-
-rich <- cdrplant %>%
-  group_by(Exp, Year, Field, Plot, NTrt, NAdd) %>%
-  filter(Biomass > 0) %>%
-  count() %>%
-  filter(Year < 2005) %>%
-   group_by(Exp, Year, NTrt, NAdd) %>%
-  summarize(meanrich = mean(n))
-
-ggplot(rich, aes(x=Year, y=meanrich, color = as.factor(NAdd), group = NTrt)) + geom_point() + geom_line()
-
-
-rich <- cdrplant %>%
-  group_by(Exp, Year, Field, Plot, NTrt, NAdd) %>%
-  filter(Biomass > 0) %>%
-  summarize(rich = n(), totbiomass = sum(Biomass)) %>%
-  filter(Year < 2005) %>%
-  group_by(Exp, Year, NTrt, NAdd) %>%
-  summarize(meanrich = mean(rich), meanbiomass = mean(totbiomass), CV = sd(totbiomass, na.rm = T)/mean(totbiomass, na.rm=T))
-
-ggplot(subset(rich, Year < 1996), aes(x=meanrich, y=meanbiomass, color = NTrt)) + geom_point() + 
-  facet_wrap(~NTrt,scales = "free") + geom_smooth(method = "lm")
-
-
-rich <- cdrplant %>%
-  group_by(Exp, Year, Field, Plot, NTrt, NAdd) %>%
-  filter(Biomass > 0) %>%
-  summarize(rich = n(), totbiomass = sum(Biomass)) 
-
-%>%
-  filter(Year < 2005) %>%
-  group_by(Year, Exp, Year, NTrt, NAdd) %>%
-  summarize(meanrich = mean(rich), meanbiomass = mean(totbiomass))
-
-ggplot(subset(rich, Year < 1996), aes(x=rich, y=totbiomass, color = NTrt)) + geom_point() + 
-  facet_wrap(~NTrt,scales = "free") + geom_smooth(method = "lm")
-
-
-
-rich <- cdrplant %>%
-  group_by(Exp, Year, Field, Plot, NTrt, NAdd) %>%
-  filter(Biomass > 0) %>%
-  summarize(rich = n(), totbiomass = sum(Biomass)) %>%
-  filter(Year < 2005) %>%
-  group_by(Exp, Plot, Field, NTrt, NAdd) %>%
-  summarize(meanrich = mean(rich), meanbiomass = mean(totbiomass), CVbiomass = meanbiomass/sd(totbiomass))
-
-ggplot(rich, aes(x=meanrich, y=meanbiomass, color = NTrt)) + geom_point() #+ 
-  facet_wrap(~NTrt,scales = "free") + geom_smooth(method = "lm")
+## WORKFLOW B: How do you hypothesize that biomass will change with nitrogen and species richness?
+## Metadata here: http://www.cedarcreek.umn.edu/research/data/dataset?ple001
+## With a partner, write out the workflow you will use in English and put up a green sticky.
+# What QAQC will you do beforehand? 
+# How will you manipulate the data once you are happy with it?
+## After we have discussed as a class, write out and run the workflow in tidyverse R
 
