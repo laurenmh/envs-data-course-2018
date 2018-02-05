@@ -5,3 +5,5 @@
 *.DS_Store
 *.html
 *.nb.html
+*.txt
+*.csv
