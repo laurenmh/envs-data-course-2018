@@ -1,5 +1,5 @@
 ################################################################################
-### R-WORKSHOP                                                               ###
+### ENVS 410/510                                                             ###
 ### TRANSFORM: Rearranging data                                              ### 
 ################################################################################
 
@@ -223,9 +223,9 @@ summarize(wtemp2, avg_temp_calispell = mean(calispell_temp, na.rm = TRUE))
 ## If we add the group_by function, summarize will give us the requested value FOR EACH GROUP.
 
 ## First, let's create a new tibble that is equal to to wtemp2 but includes two grouping variables: month and year
-wtemp_by_monthyear <- group_by(wtemp2, month, year)
+wtemp_by_monthyear <- group_by(wtemp, month, year)
 
-## QUESTION: Print wtemp and wtemp_by_month. Can you see how they differ?
+## QUESTION: Print wtemp and wtemp_by_monthyear. Can you see how they differ?
 
 ## Use summarize again, but this time on wtemp_by_month.
 summarize(wtemp_by_monthyear, avg_temp_calispell= mean(calispell_temp, na.rm = TRUE))
