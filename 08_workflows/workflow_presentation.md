@@ -1,4 +1,4 @@
-workflow_presentation
+Workflow presentation
 ========================================================
 author: 
 date: 
@@ -36,13 +36,12 @@ dplyr allows me to do just that with the "pipeline"
 
 x  %>%  f(y) -> f(x, y)
 
-hourly_delay <- flightdata  %>%  
+hourly_delay <- flights %>%  
   filter(!is.na(dep_delay))  %>%  
-  group_by(date, hour)  %>%  
+  group_by(day, hour)  %>%  
   summarise(  
-    delay = mean(dep_delay),  
-    n = n())  %>%  
-  filter(n > 2)  
+    delay = mean(dep_delay))  %>%  
+  filter(delay > 2)  
   
   
 dplyr
