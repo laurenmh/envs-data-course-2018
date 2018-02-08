@@ -16,78 +16,111 @@ Q: What years and treatments did they include in Figure 1?
 Metadata here: http://www.cedarcreek.umn.edu/research/data/dataset?ple001  
 
 #### ii) With a partner, write out the workflow you will use in English and put up a green sticky when done.
-- What QAQC will you do beforehand?
-- How will you manipulate the data once you are happy with it?  
+**Data QAQC**
+To clean the data, I will first remove any biomass values that are NA or are less than or equal to zero.
+Second, I will remove any species entries that are not species (e.g., miscellaneous categories, etc). To identify these values I will look at the unique species values, and then filter out the entries that do not correspond to actual species.
+Third, to make sure that species are not double counted I will only retain unique values for each field/plot/year/treatment/species combination. To do this I will remove the biomass column and retain unique entries. 
+
+**Data manipulation**
+I will calculate species richness within each field/plot/year/treatment combination. I will group the data by field, plot, year, and treatment and count the number of rows within each group to measure species richness.
+Second, I will calculate the mean and std error of richness within each treatment and year.
+Third, I will filter the data to only retain the first 25 years (following Clark and Tilman 2008), and to only retain a control, low, medium, and high N treatment.
+
 
 #### iii) After we have discussed as a class, write out and run the workflow in tidyverse R.
 Here's the data import to get you going:
 ```{r}
+# load the tidyverse package
+library(tidyverse)
+
+# create a function to calculate standard error
+calcSE<-function(x){
+  x <- x[is.na(x)==F]
+  sd(x)/sqrt(length(x))
+}
+
+# read in the data 
 cdrplant <- read.csv("e001_Plant aboveground biomass data.csv", stringsAsFactors = F, skip = 726) %>%
-  as.tibble()
+  as_tibble()
+
+cdrrich <- cdrplant %>%
+  
+  # remove entries with no biomass
+  filter(!is.na(Biomass), Biomass > 0) %>%
+  
+  # remove entries that are not species option 1, this is one way that is faster with many species
+  filter(!Species %in% c("Miscelaneous Woody", "Miscelanious herb", "Pine cones", "Mosses & lichens 2", "Miscellaneous forb", "Miscellaneous sedges", "Miscellaneous woody plants", "Miscellaneous grasses 2", "Miscellaneous legumes", "Forb seedlings", "Miscellaneous rushes", "Fungi", "Miscellaneous grasses", "Miscellaneous sp.", "Miscellaneous herbs", "Miscellaneous litter")) %>%
+  
+  # remove entries that are not species option 2, this is the way we learned, but it is tedious with many species...
+  # here just removing two entries as a demo
+  filter(Species != "Miscellaneous litter",
+         Species != "Miscellaneous herbs") %>%
+  
+  # calculate richness within year, field, plot and treatment
+  group_by(Year, Field, Plot, NTrt) %>%
+  summarize(rich=n()) %>%
+  
+  # calculate mean richness and se richness within year and treatment
+  group_by(Year,NTrt) %>%
+  summarize(avg_rich = mean(rich), se_rich = calcSE(rich)) %>%
+
+  # select only the years and treatments that Clark and Tilman 2008 used
+  # choosing to use just the first control treatment here (1 and not 9)
+  # Not that you can use the %in% syntax such that: NTrt %in% c(1,2,3,5)
+  filter(Year < 2005,
+         NTrt == 1 | NTrt == 2 | NTrt == 3 | NTrt == 5) 
+  
+
+ggplot(cdrrich, aes(x=Year,y=avg_rich,color=as.factor(NTrt)))+geom_point() + geom_line() + geom_errorbar(aes(x=Year,ymin=avg_rich-se_rich,ymax=avg_rich+se_rich))
+
 ```
 
 
 
-## 2) C:N RATIOS WITH N-DEPOSITION
+## 2) TOTAL BIOMASS WITH OVER TIME 
+Check out  http://www.cedarcreek.umn.edu/research/experiments/e001
+
+#### i) What did Haddad et al. 2002 find? See text and Figure 6  
+- What happened to total biomass during the drought?  
+- What years, treatments and fields did they include in Figure 6a?
+
+### WORKFLOW A: Mimic Figure 6a. Please make a graph of mean total biomass in the successional field control plots over time. Include standard errors around each plotted point. 
+
+Metadata here: http://www.cedarcreek.umn.edu/research/data/dataset?ple001
+
+#### ii) Write out the workflow you will use in English.
+- What QAQC will you do beforehand? What data will you include and what will you drop?  
+- How will you manipulate the data to create the graph?  
+
+
+#### iii) Write out and run the workflow in tidyverse R.
+Please comment your code. Here's the data import to get you going:
+```{r}
+cdrplant <- read.csv("e001_Plant aboveground biomass data.csv", stringsAsFactors = F, skip = 726) %>%
+  as_tibble() 
+```
+
+
+## 3) C:N RATIOS WITH N-DEPOSITION
 Check out  http://www.cedarcreek.umn.edu/research/experiments/e001  
 
 #### i) What did Wedin and Tilman 1996 find? See text and Figure 7  
 
-### WORKFLOW: Mimic a panel in Figure 7 for C:N ratio of above ground biomass with nitrogen addition level
+### WORKFLOW: Please make a graph of the ratio of C:N in aboveground biomass in response to the amount of nitrogen added by species. Include standard error bars around each plotted point.
+Unlike Wedin, these data are just from Field C, so no need to represent each field separately.  
+The sample sizes for some species and N levels are very low, please only include species that have at least 4 replicates in each of at least 3 nitrogen levels.  NOTE: It is okay to iteratively check this (e.g., plotting first and then identifying which species match these criteria)
 Metadata here: http://www.cedarcreek.umn.edu/research/data/dataset?nbe001
 
-#### ii) With a partner, write out the workflow you will use in English and put up a green sticky when you are done.  
+#### ii) Write out the workflow you will use in English.
 - What QAQC will you do beforehand?  
-- How will you manipulate the data once you are happy with it?  
+- How will you manipulate the data to create the graph?  
 
 
-#### iii) After we have discussed as a class, write out and run the workflow in tidyverse R.  
-BONUS: Please also make a panel graph of C:N by nitrogen addition for each species.  
-
-Here's the data import to get you going:
+#### iii) Write out and run the workflow in tidyverse R.  
+Please comment your code. Here's the data import to get you going:
 ```{r}
 cdrCN <- read.csv("e001_Plant aboveground biomass carbon and nitrogen.csv", stringsAsFactors = F, skip = 491) %>%
-  as.tibble()
+  as_tibble()
 ```
 
-
-
-## 3) TOTAL BIOMASS WITH OVER TIME AND WITH RICHNESS AND NITROGEN
-Check out  http://www.cedarcreek.umn.edu/research/experiments/e001
-#### i) What did Haddad et al. 2002 find? See text and Figure 6  
-- What pattern did they observe between species richness and nitrogen treatment?  
--  What years and treatments did they include in Figure 1?
-
-### WORKFLOW A: Mimic Figure 6a
-Metadata here: http://www.cedarcreek.umn.edu/research/data/dataset?ple001
-
-#### ii) With a partner (if you like), write out the workflow you will use in English.
-- What QAQC will you do beforehand?  
-- How will you manipulate the data once you are happy with it?  
-
-
-#### iii) Write out and run the workflow in tidyverse R.
-
-Here's the data import to get you going:
-```{r}
-cdrplant <- read.csv("e001_Plant aboveground biomass data.csv", stringsAsFactors = F, skip = 726) %>%
-  as.tibble()
-```
-
-
-### WORKFLOW B: How do you hypothesize that biomass will change with nitrogen and species richness?
-Metadata here: http://www.cedarcreek.umn.edu/research/data/dataset?ple001
-
-#### iv) With a partner (if you like), write out the workflow you will use in English.  
-- What QAQC will you do beforehand?  
-- How will you manipulate the data once you are happy with it?  
-
-
-#### v) Write out and run the workflow in tidyverse R.
-
-Here's the data import to get you going:
-```{r}
-cdrplant <- read.csv("e001_Plant aboveground biomass data.csv", stringsAsFactors = F, skip = 726) %>%
-  as.tibble()
-```
-
+*QUESTION: How does aboveground tissue C:N ratios change with N enrichment? Do patterns appear consistent across species?*

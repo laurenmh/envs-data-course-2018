@@ -76,7 +76,7 @@ Hint: Are there any values for year that you should remove first? unique() may h
 
 ```
 
-*Using the long dataframe:*
+*Using the wide dataframe:*
 iv) What type of data are columns coral:millepora? What would you prefer them to be? 
 
 Use unique(), filter() and as.numeric() to identify and remove any unwanted values from the coral and macroalgae columns and reformat to a more useable type.
