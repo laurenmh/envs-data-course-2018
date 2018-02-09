@@ -56,8 +56,8 @@ cdrrich <- cdrplant %>%
   filter(Species != "Miscellaneous litter",
          Species != "Miscellaneous herbs") %>%
   
-  # select only unique species 
-  select(Year, Field, Plot, NTrt, Species) %>%
+  # select only unique species (ie, remove duplicate entries) 
+  select(-Biomass) %>%
   unique() %>%
   
   # calculate richness within year, field, plot and treatment
