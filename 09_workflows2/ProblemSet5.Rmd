@@ -56,6 +56,10 @@ cdrrich <- cdrplant %>%
   filter(Species != "Miscellaneous litter",
          Species != "Miscellaneous herbs") %>%
   
+  # select only unique species 
+  select(Year, Field, Plot, NTrt, Species) %>%
+  unique() %>%
+  
   # calculate richness within year, field, plot and treatment
   group_by(Year, Field, Plot, NTrt) %>%
   summarize(rich=n()) %>%
