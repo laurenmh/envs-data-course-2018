@@ -40,7 +40,7 @@ library(tidyverse)
 wtemp <- read_csv("CalispellCreekandTributaryTemperatures.csv") 
 
 ## Let's assign more useable column names
-names(wtemp)<-c("date", "time", "calispell_temp", "smalle_temp", "winchester_temp")
+names(wtemp) <- c("date", "time", "calispell_temp", "smalle_temp", "winchester_temp")
 
 
 ## QUESTION: What is messy about this data?
