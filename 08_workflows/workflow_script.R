@@ -37,7 +37,7 @@ summarize(wtemp_by_monthyear, avg_temp_calispell= mean(calispell_temp, na.rm=TRU
 ## Let's take this a step further, and look at the mean and standard error.
 ## First, run this code to store a function that calculates SE
 calcSE<-function(x){
-  x <- x[is.na(x)==F]
+  x <- x[!is.na(x)]
   sd(x)/sqrt(length(x))
 }
 
