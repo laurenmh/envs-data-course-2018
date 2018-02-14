@@ -84,7 +84,7 @@ wtemp_gathered %>%
 ## Let's revisit the Lower Spokane fish data
 ## I've added a some of the messiness for pedagogical purposes
 ## Let's read it in and convert it to a dataframe table:
-fishcatch<-read.csv("LowerSpokaneFish_Messy.csv") %>%
+fishcatch <- read.csv("LowerSpokaneFish_Messy.csv") %>%
   tbl_df()
 
 ## Now have a look. Which column stores multiple variables?
@@ -107,6 +107,9 @@ wtemp_gathered <- wtemp %>%
   gather(site, temperature, calispell_temp:winchester_temp) 
 
 
+
+
+
 ############################################################
 ## 3) Problem: Variables are stored in both rows and columns
 ## tidyr solution: gather then filter 
@@ -116,6 +119,9 @@ wtemp_gathered <- wtemp %>%
 fishcatch
 
 ## QUESTION: What information is implicit based on a row/column combination?
+
+
+
 
 ## The headers "CapturedFloyTagNo" and "AppliedFloyTagNo" are all different values of 
 ## what should be a "TagType" variable
@@ -135,7 +141,7 @@ fishcatch2 <- fishcatch %>%
   
   ## NEW CODE SECTION:
   #create the NewCapture column
-  mutate(NewCapture=1, NewCapture=ifelse(TagType=="CapturedFloyTagNo", 0, NewCapture)) %>%
+  mutate(NewCapture = 1, NewCapture = ifelse(TagType=="CapturedFloyTagNo", 0, NewCapture)) %>%
   #remove the redundant TagType column
   select(-TagType) %>%
   print
@@ -181,8 +187,9 @@ fishdat <-fishcatch2 %>%
 ## For example, we could summarize fishdat by count before joining with effortdat.
 
 
-## We already learned how to link data frames:
-togdat<-inner_join(effortdat, fishdat)
+## We already learned how to link data frames.
+## TASK: Rejoin effortdat and fishdat to make a table for analysis
+
 
 ## If not specified, the join commands will act on as many shared columns as possible, and drop data that don't join.
 ## But you could specify with by=c("column1", "column2"...).
@@ -227,9 +234,12 @@ tog <- rbind(pass1, pass2) %>%
 ## QUESTION: This type of messiness often happens when data are collected at different points of time.
 ## Can you think of a reason why the fix might not always be so easy?
 
+
+
+
+
+
 ## SAVING A CLEAN DATAFRAME
-## In the graphics module we discussed how to save images 
-## But what if we went to save processed data as a new .csv?
 ## Instead of "read_csv" we use "write_csv"
 ## For example, to save the fishdat dataframe as a .csv file
 ## called "LowerSpokaneFishCatch.csv" uncomment out this code:
