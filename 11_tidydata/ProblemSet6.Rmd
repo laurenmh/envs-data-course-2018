@@ -1,0 +1,128 @@
+---
+title: "Problem Set 6"
+output: html_document
+---
+
+
+TO submit: Please rename this file LASTNAME_ProblemSet1 and upload to the assignments folder on Canvas before class next Wed
+
+## I. Take the following courses in swirl. 
+Some of these will be parallel to and reinforcing of our in-class exercise, and others will expand on what we have learned. As you proceed with each module please pause and use the play() function at relevant stages in each module to answer the associated questions. Please note that swirl is a little buggy, and if you answer a multiple choice incorrectly it may give you an error and exit swirl. If that happens, type swirl() to resume and enter the same user name you used previously, and you should be able to navigate directly back to where you left off. 
+
+We'll be using an add-on course, so let's install it in swirl.
+Run all of the following to do so, but then re-hastag to to render the .Rmd more quickly
+```{r}
+library(swirl)
+library(tidyverse)
+# install_course("Getting_and_Cleaning_Data")
+# #swirl()
+```
+
+
+### 1) Manipulating Data with dplyr
+This will be a review to reinforce the dplyr syntax. Note that some of the terms are a little outdated (e.g., we now use tibble instead of tbl_df, but the major functions are unchanged).
+
+Please copy your answer to the following swirl prompt:
+"Add a column called size_mb that contains the download size in megabytes"
+```{r}
+# Fine to hash-tag the code if there is a problem rendering the .Rmd
+```
+
+
+### 2) Grouping and Chaining with dplyr
+a. What was the most popular package download from CRAN on July 8, 2014?
+
+b. What package was downloaded in the most countries? What does that package do?
+
+
+### 3. Tidying Data with tidyr
+Please add the code you used to satifsy the following script:
+```{r}
+# Fine to hash-tag it if there is a problem rendering the .Rmd
+
+# Append two more function calls to accomplish the following:
+#
+# 1. Use group_by() (from dplyr) to group the data by part and
+# sex, in that order.
+#
+# 2. Use mutate to add two new columns, whose values will be
+# automatically computed group-by-group:
+#
+#   * total = sum(count)
+#   * prop = count / total
+#
+```
+
+
+## II. Creating workflows with the Portal Project
+For each of the following prompts, please:
+a) Identify the information needed
+b) Identify the datasets that have this information
+c) Write the in-English workflow needed to go from raw data to question
+d) Write the R code using tidyverse syntax to go from raw data to question. Note: it's good practice to comment your code with hashtags as you go. You often may want to visualize the data to enter the question.
+
+
+### 4) What is the average weight of each taxa?
+a) Information needed:
+b) Datasets needed:
+c) English workflow:
+
+d) R workflow:
+```{r}
+
+```
+
+### 5) What is the percentage of each species in each taxa?
+a) Information needed:
+b) Datasets needed:
+c) English workflow:
+
+d) R workflow:
+```{r}
+
+```
+
+
+### 6) How many specimens of each sex are there for each year?
+a) Information needed:
+b) Datasets needed:
+c) English workflow:
+
+d) R workflow:
+```{r}
+
+```
+
+
+### 7) What are the minimum, maximum and average weight for each species of Rodent?
+a) Information needed:
+b) Datasets needed:
+c) English workflow:
+
+d) R workflow:
+```{r}
+
+```
+
+
+### 8) What is the average hindfoot length for male and female rodent of each species? Is there a Male / Female difference?
+a) Information needed:
+b) Datasets needed:
+c) English workflow:
+
+d) R workflow:
+```{r}
+
+```
+
+
+### 9) What is the average weight of each rodent species over the course of the years? Is there any noticeable trend for any of the species?
+a) Information needed:
+b) Datasets needed:
+c) English workflow:
+
+d) R workflow:
+```{r}
+
+```
+
