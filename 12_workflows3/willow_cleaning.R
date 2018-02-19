@@ -110,3 +110,8 @@ filldat <- rawdat %>%
 
 
 
+################################################################################################### 
+## Put it together graphically: 
+## How does snow addition, temperature and nitrogen affect willow seedling survival and growth? ###
+###################################################################################################
+
