@@ -21,7 +21,7 @@
 ## 2) Initial data tidying  ####
 ################################
 
-# Q: Are all the variables labeled usefully? If not, relabel.                                                         
+# Q: Are all the columns labeled usefully? If not, relabel.                                                         
 # Q: Are the data in the correct data types? If not, adjust.                       
 
 
@@ -31,7 +31,7 @@
 ## 3) Length distributions  ####
 ################################
 
-# TASK: Plot distributions of the lengths of each species.
+# TASK: Plot distributions of the lengths for each species.
 # Q: What geom will you use?
 # Q: Are the data normal? Why or why not? 
 # Please answer both by describing what aspects of the distribution are or aren't normal, and by taking a guess as to the ecological reasons why.
