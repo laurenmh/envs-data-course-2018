@@ -1,0 +1,60 @@
+---
+title: "Problem Set 8"
+output: html_document
+---
+
+Name: 
+
+We will continue to work with the electrofish data for problem set 8 - file "2013 PR Tributory Electrofishing Data.csv"
+NOTE: To help with rendering the Rmd, please:
+1) Make sure that the data and file are saved in the same folder
+2) Make sure that you have included code to load necessary packages and to import the data within the .Rmd script
+
+
+### 1) Data import
+NOTE: This should be directly copied from your work on Monday.
+Read in the data and store it as a tibble with strings as characters.
+Re-adjust data to by the correct data types.
+
+
+```{r}
+
+```
+
+
+### 2) Length and width
+Plot the relationship between length and weight for the most common species.
+Please label the axes appropriately (units are mm) and provide a descriptive title.
+Please adjust the axis text to make it larger.
+Q: How will you identify the most common species?
+Q: What geom will you use?
+```{r}
+
+```
+
+
+### 3) Differences between species
+TASK: Plot a comparison of the lengths of the different fish species.
+Please label the axes appropriately (units are mm) and provide a descriptive title.
+Please adjust the axis text to make it larger.
+Q: What geom will you use?
+```{r}
+
+```
+
+
+### 4) Species composition
+Species (cols) x location (rows) matrices are commonly used for analyzing species diversity (think: the "wide" version of the Moorea dataset). For this dataframe, treat tributaries as locations.
+Create a species x location matrix where the entries are the number of individuals of that species observed in the location.
+```{r}
+
+```
+
+
+### Species relationships
+Using your new dataframe from 6, plot the relationship between WCT and BKT abundances
+Please label the axes appropriately and provide a descriptive title.
+```{r}
+
+```
+
