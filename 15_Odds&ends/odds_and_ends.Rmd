@@ -1,0 +1,70 @@
+---
+title: "Odds and ends"
+output: html_document
+---
+
+## I. Rmarkdown exercise
+A few pointers to remember with Rmarkdown:
+- Make sure to load any needed packages within an R chunk in the markdown file
+- Make sure to have any datasets or figures you import saved in the same directory as the .Rmd file
+- Mistakes in R code will stop .Rmd files from rendering. As a last resort, you can set options in the R chunk to `echo = FALSE, eval = FALSE`
+
+### Exercise 1
+Create a new R Markdown file (.Rmd) in RStudio.
+
+### Exercise 2
+Insert a YAML Header with title, author and date of your choice at the top of your .Rmd script.
+
+### Exercise 3
+Display the summary of “cars” dataset in your report. HINT: Use summary().
+
+### Exercise 4
+Make a plot of the “cars” dataset under the summary you just created. HINT: Use plot().
+
+### Exercise 5
+Create a small experimental dataframe and dipslay it in your report. HINT: Use data.frame().
+
+### Exercise 6
+Hide the code from your report. HINT: Use echo.
+
+### Exercise 7
+Load the package “knitr” in your .Rmd file. and hide the code chunk. HINT: Use echo.
+
+### Exercise 8
+Hide the warning message that appeared in your report. HINT: Use warning.
+
+### Exercise 9
+Set fig.width and fig.height of your plot to 5.
+
+### Exercise 10
+Render your .Rmd file as a PDF
+
+## II. ggplot2 exercise
+One topic we haven't learned yet is how to export individual graphs:
+- the function `ggsave()` allows you to export a graph
+- `ggsave()` will guess the type of plot based on the extension you specify
+- You can also set the size and resolution
+
+There is a great resource called the R Graphics Gallery:
+https://www.r-graph-gallery.com/portfolio/ggplot2-package/
+
+Check out the graphics gallery, and in R chunks below replicate the code to make the following figures. Annotate any lines that are not yet annotated. Export at least one as a .pdf and another as a .jpg:
+
+### 240 Custom ggplot2 background
+
+### 233 Add text annotation
+
+### 233 Add arrow
+
+### 275 Add text label (any option)
+
+### 289 Custom font of one word 
+
+### 267 Reorder ggplot boxplot
+
+
+## III. Art!
+Sometimes even when things go wrong there's a silver lining. Check out the accidental art created by errant R graphs:
+http://accidental-art.tumblr.com/
+
+### Exerise: Fine a favorite aRt, save the image and embed it below
