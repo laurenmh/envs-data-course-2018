@@ -47,12 +47,6 @@ mydat <- read.csv("PollutionData_Exercise.csv")
 names(mydat)=c("Season", "PM10 Concentration", "Daily mortality (all causes)")
 kable(mydat)
 ```
-```{r setup, include=T, echo=F}
-library(knitr)
-mydat <- read.csv("PollutionData_Exercise.csv")
-ggplot(mydat, aes(x=PM10, y=Mortality, color = season)) + geom_point(size = 6) + geom_smooth(method = "lm", se = "F") + theme_classic() + labs(x="PM10 concentration", y="Daily mortality (all causes)", color="Season") + theme(text=element_text(size = 24))
 
-ggplot(mydat, aes(x=PM10, y=Mortality)) + geom_point(size = 6) + geom_smooth(method = "lm", se = "F") + theme_classic() + labs(x="PM10 concentration", y="Daily mortality (all causes)", color="Season") + theme(text=element_text(size = 24))
-```
 
 Table 1. Simulated data of eight years of seasonal air quality, measured as particulate matter (PM10) and centered around the mean, and daily mortality rates in the United States.
